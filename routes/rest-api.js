@@ -1,5 +1,5 @@
 
-var a = require('../public/js/module-a');
+var a = require('../isomorphic/module-a');
 var express = require('express');
 var router = express.Router();
 
