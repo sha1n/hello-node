@@ -5,8 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var rest = require('./routes/rest-api');
+var routes = require('./backend/routes/index');
+var rest = require('./backend/routes/rest-api');
 
 var service = express();
 
@@ -22,7 +22,7 @@ service.use('/', routes);
 service.use('/api', rest);
 
 // view engine setup
-service.set('views', path.join(__dirname, 'views'));
+service.set('views', path.join(__dirname, 'backend/views'));
 service.set('view engine', 'jade');
 
 // catch 404 and forward to error handler

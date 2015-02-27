@@ -5,13 +5,13 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         watch: {
             scripts: {
-                files: ['app.js', 'public/**/*.js']
+                files: ['app.js', 'src/public/**/*.js']
             }
         },
         browserify: {
             dist: {
-                src: ['isomorphic/**/*.js'],
-                dest: 'public/js/bundle.js',
+                src: ['src/isomorphic/**/*.js'],
+                dest: 'src/public/js/bundle.js',
                 options: {
                     require: ['underscore']
                 }

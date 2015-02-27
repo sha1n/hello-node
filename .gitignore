@@ -32,7 +32,7 @@ node_modules
 .idea
 
 # Generated sources
-public/js/bundle.js
+src/public/js/bundle.js
 
 
 
