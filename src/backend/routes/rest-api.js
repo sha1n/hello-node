@@ -1,10 +1,12 @@
 
 var a = require('../../isomorphic/module-a');
-var DataService = require('../data').DataService;
+var DataServiceProvider = require('../backend-data-service-provider').BackendDataServiceProvider;
+var DataClient = require('../../isomorphic/data-client').DataClient;
 var express = require('express');
 var passwordless = require('passwordless');
 var router = express.Router();
 
+var dataClient = new DataClient(new DataServiceProvider());
 var dataOptions = {
     beFast: true,
     beCool: true
@@ -22,19 +24,22 @@ router.get('/sum', passwordless.restricted(), function(req, res) {
 
 });
 
-router.post('/collections/:collectionName', function (req, res) {
+router.put('/collections/:collectionName', function (req, res) {
     var object = req.body;
-    var collectionName = req.param('collectionName');
-    var data = new DataService(dataOptions);
+    var collectionName = req.params.collectionName;
 
-    res.send(data.save(collectionName, object));
+    console.log('put [', object, '] in [', collectionName, ']');
+
+    res.send(dataClient.save(collectionName, object));
 });
 
 router.get('/collections/:collectionName', function (req, res) {
-    var collectionName = req.param('collectionName');
-    var data = new DataService(dataOptions);
+    var collectionName = req.params.collectionName;
+    //var data = new DataService(dataOptions);
 
-    res.send(data.find(collectionName));
+    console.log('get from [', collectionName, ']');
+
+    res.send(dataClient.find(collectionName));
 });
 
 
