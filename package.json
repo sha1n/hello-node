@@ -2,6 +2,9 @@
   "name": "hello-node",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "postinstall": "./node_modules/grunt-cli/bin/grunt browserify"
+  },
   "dependencies": {
     "body-parser": "~1.10.2",
     "browserify": "^9.0.3",
@@ -11,6 +14,9 @@
     "emailjs": "^0.3.12",
     "express": "~4.11.1",
     "express-session": "^1.10.3",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.5.0",
+    "grunt-cli": "^0.1.13",
     "jade": "~1.9.1",
     "morgan": "~1.5.1",
     "passwordless": "^1.0.9",
